@@ -1,0 +1,14 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:opacity="opaque">
+    <!-- background -->
+    <item android:drawable="@color/white" />
+
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/splash"
+            tools:ignore="ResourceCycle" />
+    </item>
+</layer-list>

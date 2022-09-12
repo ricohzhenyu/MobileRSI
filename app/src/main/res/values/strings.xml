@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RSI</string>
+    <string name="title_home">Home</string>
+    <string name="title_rsi">RSI</string>
+    <string name="title_status">RSI Status</string>
+    <string name="title_help">RSI Help</string>
+</resources>

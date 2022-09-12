@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_rsi"
+        android:icon="@drawable/ic_rsi1024bw"
+        android:title="RSI" />
+
+    <item
+        android:id="@+id/navigation_status"
+        android:icon="@drawable/ic_baseline_bar_chart_24"
+        android:title="RSI Status" />
+
+    <item
+        android:id="@+id/navigation_help"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="RSI Help" />
+
+</menu>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.ricoh.mobilersi.ui.home.HomeFragment"
+        android:label="Welcome"
+        android:tag="fragment_home"
+        tools:layout="@layout/fragment_home" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_rsi"
+        android:name="com.ricoh.mobilersi.ui.rsi.RsiFragment"
+        android:label="RSI"
+        android:tag="fragment_rsi"
+        tools:layout="@layout/fragment_rsi" />
+
+    <fragment
+        android:id="@+id/navigation_status"
+        android:name="com.ricoh.mobilersi.ui.status.StatusFragment"
+        android:label="RSI Status"
+        android:tag="fragment_status"
+        tools:layout="@layout/fragment_status" />
+
+    <fragment
+        android:id="@+id/navigation_help"
+        android:name="com.ricoh.mobilersi.ui.help.HelpFragment"
+        android:label="RSI Help"
+        android:tag="fragment_help"
+        tools:layout="@layout/fragment_help" />
+</navigation>
