@@ -12,7 +12,6 @@
         android:hardwareAccelerated="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MobileRSI"
         tools:targetApi="31">
         <activity android:name=".SplashActivity" android:theme="@style/SplashTheme"
             android:exported="true"
@@ -27,6 +26,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.MobileRSI"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>

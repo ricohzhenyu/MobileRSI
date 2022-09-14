@@ -1,19 +1,20 @@
 package com.ricoh.mobilersi.ui.status;
 
+import android.webkit.WebView;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class StatusViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private final MutableLiveData<WebView> mWebView;
 
     public StatusViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("Todo: RSI Status");
+        mWebView = new MutableLiveData<>();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<WebView> getWebView() {
+        return mWebView;
     }
 }

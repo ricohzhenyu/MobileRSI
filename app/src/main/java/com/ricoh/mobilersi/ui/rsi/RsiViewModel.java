@@ -1,19 +1,14 @@
 package com.ricoh.mobilersi.ui.rsi;
 
+import android.os.Bundle;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class RsiViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    Bundle webViewState = new Bundle();
 
-    public RsiViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("Todo: RSI WebView");
-    }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
 }

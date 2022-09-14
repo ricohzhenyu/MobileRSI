@@ -28,7 +28,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_centerHorizontal="true"
-                android:src="@mipmap/rsi192" />
+                android:src="@mipmap/rsi120" />
             <TextView
                 android:id="@+id/text_gotorsi"
                 android:layout_width="wrap_content"
@@ -51,8 +51,8 @@
 
             <ImageView
                 android:id="@+id/imageview_gotostatus"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/status120" />
             <TextView
@@ -77,8 +77,8 @@
 
             <ImageView
                 android:id="@+id/imageview_gotohelp"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_centerHorizontal="true"
                 android:src="@mipmap/info120" />
             <TextView

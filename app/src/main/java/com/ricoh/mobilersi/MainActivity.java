@@ -2,6 +2,9 @@ package com.ricoh.mobilersi;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.ColorStateList;
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -44,25 +48,28 @@ public class MainActivity extends AppCompatActivity {
     private Fragment[] allFragments = null;
 
     BottomNavigationView navView;
-    final FragmentManager fm = getSupportFragmentManager();
+    FragmentManager fm = null;
     Fragment active = homeFragment;
     boolean doubleBackToExitPressedOnce = false;
 
     View rootView = null;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //setContentView(R.layout.activity_main);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         rootView = binding.getRoot();
         setContentView(rootView);
 
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         navView = (BottomNavigationView) findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         navView.setLabelVisibilityMode(NavigationBarView.LABEL_VISIBILITY_LABELED);
-        navView.setItemIconSize(80);
+        navView.setItemIconSize(70);
         navView.setMinimumHeight(170);
 
         // Passing each menu ID as a set of Ids because each
@@ -75,13 +82,21 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationUI.setupActionBarWithNavController(this, controller, appBarConfiguration);
         //NavigationUI.setupWithNavController(binding.navView, controller);
+
+        int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        switch (currentNightMode) {
+            case Configuration.UI_MODE_NIGHT_NO:
+                navView.setItemIconTintList(getResources().getColorStateList(R.color.color_state_menu_navi_light));
+                break;
+            case Configuration.UI_MODE_NIGHT_YES:
+                navView.setItemIconTintList(getResources().getColorStateList(R.color.color_state_menu_navi_dark));
+                navView.setItemTextColor(getResources().getColorStateList(R.color.color_state_menu_navi_dark));
+                break;
+        }
+
+        setFragment(homeFragment, "Home", 0);
     }
 
-    @Override
-    protected void onStart() {
-        setFragment(homeFragment, "Home", 0);
-        super.onStart();
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -113,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
     public void setFragment(Fragment fragment, String tag, int position) {
         if(allFragments==null) {
             allFragments = new Fragment[]{homeFragment, rsiFragment, statusFragment, helpFragment};
+        }
+        if(fm==null) {
+            fm = getSupportFragmentManager();
         }
 
         //show destination Fragment, and hide others

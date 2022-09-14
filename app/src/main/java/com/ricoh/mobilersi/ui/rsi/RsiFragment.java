@@ -13,6 +13,7 @@ import android.os.Environment;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,7 @@ public class RsiFragment extends Fragment {
     private FragmentRsiBinding binding;
     private WebView rsiWebView;
 
+    RsiViewModel rsiViewModel = null;
 
     private ValueCallback<Uri> mUploadCallbackBelow;
     private ValueCallback<Uri[]> mUploadCallbackAboveL;
@@ -57,6 +59,7 @@ public class RsiFragment extends Fragment {
 
     final String urlIndex = "https://www.na.smart-integration.ricoh.com/si-apps/pub/mobile-index.html";
     final String urlLogin = "https://www.na.smart-integration.ricoh.com/si-apps/pub/mobile-login.html";
+
 
 
     //*********************** Autofill related: Start ******************
@@ -117,11 +120,9 @@ public class RsiFragment extends Fragment {
     //*********************** Autofill related: End ******************
 
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        RsiViewModel rsiViewModel =
-                new ViewModelProvider(this).get(RsiViewModel.class);
+        rsiViewModel = new ViewModelProvider(this).get(RsiViewModel.class);
 
         binding = FragmentRsiBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -208,6 +209,7 @@ public class RsiFragment extends Fragment {
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,
                             Manifest.permission.READ_EXTERNAL_STORAGE},1);
         }
+
 
         rsiWebView.loadUrl(urlIndex);
 
@@ -349,6 +351,6 @@ public class RsiFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
+        //binding = null;
     }
 }
